@@ -1,16 +1,14 @@
 # Oncoprints for WTC U01 Melanoma Grant 
 
-#setwd("R:/Kirchhofflab/homes/Kirchhofflabspace/Project-World-Trade-Center_U01/Oncoprint/")
 
-setwd("/Users/handzj01/Desktop/World-Trade-Center-U01-211112/Oncoprint/Output/")
+setwd("")
 
 
 library(ComplexHeatmap)
 
 ####### Oncoprint of NYU Driver Genes in NYU Pts ####### 
 ###### Top 50 Genes (NYU NYU)  ########
-#mat = read.table("/Users/handzj01/Desktop/World-Trade-Center-U01-211112/Oncoprint/Input/WTC_U01_pt_NYU_Driver_50_df_forOncoprint.txt", header = TRUE,stringsAsFactors=FALSE, sep = "\t")
-mat = read.table("/Users/handzj01/Desktop/World-Trade-Center-U01-211112/Oncoprint/Input/NYU_Driver_50_first_filter.txt", header = TRUE,stringsAsFactors=FALSE, sep = "\t")
+mat = read.table("", header = TRUE,stringsAsFactors=FALSE, sep = "\t")
 
 mat[is.na(mat)] = ""
 rownames(mat) = mat[, 1]
