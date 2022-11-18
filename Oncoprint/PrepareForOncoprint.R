@@ -1,26 +1,13 @@
 library("readxl")
 library("xlsx")
-####### Subsetting dataframes to the desired gene lists ####### 
-#setwd("R:/Kirchhofflab/homes/Kirchhofflabspace/Project-World-Trade-Center_U01/Oncoprint/")
 
-#setwd("/Volumes/Kirchhofflabspace/Project-World-Trade-Center_U01/Oncoprint/")
-
-####### NYU Driver Genes Top 50 ####### 
-#NYU_Driver_50 = read.table("Gene Lists/Gene_List_WTC_U01_pt_Driver_top50.txt", header = T,stringsAsFactors=FALSE, sep = "\t")
-NYU_Driver_50 = read.table("/Users/handzj01/Desktop/World-Trade-Center-U01-211112/Oncoprint/Input/Gene_List/Gene_List_TCGA_pt_Melanoma_top50.txt", header = TRUE,stringsAsFactors=FALSE, sep = "\t")
-
-## NYU Patients
-
-
-####### Prepare input
-
-## Concatenate separate files and create the
-## data
+####### Gene List ####### 
+gene.list = read.table(gene.list.file, header = TRUE,stringsAsFactors=FALSE, sep = "\t")
 
 
 ### Cleaning and making FULL dataset, not subset to just NYU PACT Genes 
 #### Removing unknown, combining all frameshift/nonframeshift
-input.dir <- "/Users/handzj01/Desktop/Mutations_for_WTC_U01/FirstFilter/"
+input.dir <- ""
 setwd(input.dir)
 
 data <- data.frame()
@@ -52,16 +39,12 @@ for(file in list.files(input.dir)){
 
 ### Create data based on collpased files
 
-input <- read.table("/Users/handzj01/Desktop/BigPurpleSFTP/Ziyan/2022-11-WES/WES_Results/VCF-GATK-HC-annot.all.txt",
+input <- read.table("",
                     comment.char = "",
                     check.names = FALSE, sep = "\t", header = T)
 
 data <- input[,c(2,10,11,13)]
 colnames(data) <- c("Study_ID", "Func.refGene", "Gene.refGene", "ExonicFunc.refGene")
-
-
-
-
 
 #Prelim_pts_NYU <- read.delim("../WTC_Annotated_VCFs/WTC_U01_all_gene_dataframe.txt", header = T, stringsAsFactors = F, sep="\t")
 
@@ -104,6 +87,6 @@ for (i in 1:length(unique(input$Study_ID))){
 
 colnames(gene_list)=c("Genes",paste0("Sample.",as.character(sample)))
 
-write.table(gene_list,file="/Users/handzj01/Desktop/World-Trade-Center-U01-211112/Oncoprint/Input/NYU_Driver_50_first_filter.txt",col.names = T,row.names = F,quote = F,sep = "\t")
+write.table(gene_list,file="",col.names = T,row.names = F,quote = F,sep = "\t")
 
 gene_list[which(gene_list$Genes == "NRAS"),]
