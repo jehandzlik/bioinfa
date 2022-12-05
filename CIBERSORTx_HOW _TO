@@ -1,0 +1,32 @@
+How to prepare files for CIBERSORTx
+
+1) If you have clusters/cell types from the analysis of scRNA-seq and the marker genes that define
+   those clusters, then this is the "Signature Matrix" file. Otherwise create the Signature Matrix.
+   
+                   cluster_1  cluster_2 ... cluster_k
+   marker gene 1   exp        exp           exp
+   marker gene 2
+   ...
+   marker gene n
+   
+2) Prepare mixture file with bulk RNA-seq expressions
+
+            sample_1  sample_2 ... sample_k
+   gene 1   exp       exp          exp
+   gene 2
+   ...
+   gene all
+   
+3) Run "Impute Cell Fractions" on CIBERSORTx website. 
+
+a) Use raw counts in both scRNA and RNA-seq data. 
+b) Run Batch correction with S-mode. For that you need a "Reference File" with the gene expression 
+   of each cell (assigned to a cluster/cell type) and each gene. 
+   
+                   cell in cluster_1  cell in cluster_2 ... cell in cluster_k
+   marker gene 1   exp                exp                   exp
+   marker gene 2
+   ...
+   marker gene all
+   
+   
